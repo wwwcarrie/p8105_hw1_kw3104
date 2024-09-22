@@ -1,0 +1,50 @@
+---
+title: "p8105_hw1_kw3104"
+author: Carrie Wu
+output: html_document
+date: "2024-09-21"
+---
+
+## Question 1
+
+```{r}
+library(palmerpenguins)
+
+data("penguins", package = "palmerpenguins")
+
+```
+
+* This data set include: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year.
+  *Noted: row 4 and 272 containing missing values
+* There are 344 rows and 8 columns
+* The mean flipper length in the dataset is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
+
+```{r scatterplot, warning = FALSE}
+library(ggplot2)
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point() 
+
+ggsave("scatterplot_penguins.png", width = 6, height = 4)
+
+```
+
+## Question 2
+* a random sample of size 10 from a standard Normal distribution
+* a logical vector indicating whether elements of the sample are greater than 0
+* a character vector of length 10
+* a factor vector of length 10, with 3 different factor “levels”
+
+```{r}
+library(tibble)
+
+example_df = tibble(
+  samp = rnorm(10),
+  vec_log = samp > 0,
+  vec_char = c("q","w", "e","r","t","y","u","i","o","p"),
+  vec_fac = factor(c("good","good","bad","good","neutral","bad","good","neutral","good","bad"))
+)
+
+```
+
+
