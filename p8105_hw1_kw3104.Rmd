@@ -47,4 +47,11 @@ example_df = tibble(
 
 ```
 
+mean of data frame
+##execuation halted. 
+```{r}
+##The mean is `r mean(samp)`.
+```
+
+
 
